@@ -27,6 +27,20 @@
 <script type="text/javascript">
      // FirebaseUI config.
      var uiConfig = {
+       callbacks: {
+          signInSuccess: function(currentUser, credential, redirectUrl) {
+            // Do something.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            window.location = "console.html";
+            return true;
+          },
+          uiShown: function() {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+          }
+        },
        signInSsuccessUrl: 'console.html',
        signInOptions: [
          // Leave the lines as is for the providers you want to offer your users.
