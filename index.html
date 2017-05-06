@@ -1,0 +1,56 @@
+<html>
+<head>
+<title> Solar Plane Hangar </title>
+<link rel="stylesheet" href="bootstrap/bootstrap.css">
+<script type="text/javascript" src="bootstrap/bootstrap.js"></script>
+
+<!--                   Firebase initialization and essentials              -->
+
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script><!-- for core Firebase app JS -->
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCVrgUAJ2fqhGBj_w3lphk5MDU7ps9POA4",
+    authDomain: "planepro-4b5b2.firebaseapp.com",
+    databaseURL: "https://planepro-4b5b2.firebaseio.com",
+    projectId: "planepro-4b5b2",
+    storageBucket: "planepro-4b5b2.appspot.com",
+    messagingSenderId: "448140194014"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script><!--For firebase UI -->
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" /><!--For firebase UI -->
+
+<script type="text/javascript">
+     // FirebaseUI config.
+     var uiConfig = {
+       signInSuccessUrl: 'console.html',
+       signInOptions: [
+         // Leave the lines as is for the providers you want to offer your users.
+         firebase.auth.GithubAuthProvider.PROVIDER_ID,
+         firebase.auth.EmailAuthProvider.PROVIDER_ID
+       ],
+       // Terms of service url.
+       tosUrl: 'tos.html'
+     };
+
+     // Initialize the FirebaseUI Widget using Firebase.
+     var ui = new firebaseui.auth.AuthUI(firebase.auth());
+     // The start method will wait until the DOM is loaded.
+     ui.start('#firebaseui-auth-container', uiConfig);
+</script>
+
+
+
+</head>
+<body>
+
+<h1>Hola!</h1>
+<h2>We are plane builders.</h2>
+<div id="firebaseui-auth-container"></div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title> Solar plane design console. </title>
+<link rel="stylesheet" href="bootstrap/bootstrap.css">
+<script type="text/javascript" src="bootstrap/bootstrap.js"></script>
+
+<!--                   Firebase initialization and essentials              -->
+
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script><!-- for core Firebase app JS -->
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCVrgUAJ2fqhGBj_w3lphk5MDU7ps9POA4",
+    authDomain: "planepro-4b5b2.firebaseapp.com",
+    databaseURL: "https://planepro-4b5b2.firebaseio.com",
+    projectId: "planepro-4b5b2",
+    storageBucket: "planepro-4b5b2.appspot.com",
+    messagingSenderId: "448140194014"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script type="text/javascript">
+//For tracking authentication
+     initApp = function() {
+       firebase.auth().onAuthStateChanged(function(user) {
+         if (user) {
+           // User is signed in.
+           var displayName = user.displayName;
+           var email = user.email;
+           var emailVerified = user.emailVerified;
+           var photoURL = user.photoURL;
+           var uid = user.uid;
+           var providerData = user.providerData;
+           user.getToken().then(function(accessToken) {
+             document.getElementById('sign-in-status').textContent = 'Signed in';
+             document.getElementById('sign-in').textContent = 'Sign out';
+             document.getElementById('account-details').textContent = JSON.stringify({
+               displayName: displayName,
+               email: email,
+               emailVerified: emailVerified,
+               photoURL: photoURL,
+               uid: uid,
+               accessToken: accessToken,
+               providerData: providerData
+             }, null, '  ');
+           });
+         } else {
+           // User is signed out.
+           document.getElementById('sign-in-status').textContent = 'Signed out';
+           document.getElementById('sign-in').textContent = 'Sign in';
+           document.getElementById('account-details').textContent = 'null';
+         }
+       }, function(error) {
+         console.log(error);
+       });
+     };
+
+     window.addEventListener('load', function() {
+       initApp()
+     });
+   </script>
+ </head>
+ <body>
+   <h1>Welcome to Solar Plane Design Console</h1>
+   <div id="sign-in-status"></div>
+   <div id="sign-in"></div>
+   <div id="account-details"></div>
+ </body>
+</html>
