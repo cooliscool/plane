@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title> Solar plane design console. </title>
+<title> Solar plane design console. </title>
 <link rel="stylesheet" href="bootstrap/bootstrap.css">
 <script type="text/javascript" src="bootstrap/bootstrap.js"></script>
 
@@ -21,6 +21,10 @@
   firebase.initializeApp(config);
 </script>
 
+<script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" />
+
+
 <script type="text/javascript">
 //For tracking authentication
      initApp = function() {
@@ -36,15 +40,7 @@
            user.getToken().then(function(accessToken) {
              document.getElementById('sign-in-status').textContent = 'Signed in';
              document.getElementById('sign-in').textContent = 'Sign out';
-             document.getElementById('account-details').textContent = JSON.stringify({
-               displayName: displayName,
-               email: email,
-               emailVerified: emailVerified,
-               photoURL: photoURL,
-               uid: uid,
-               accessToken: accessToken,
-               providerData: providerData
-             }, null, '  ');
+             document.getElementById('account-details').textContent = displayName;
            });
          } else {
            // User is signed out.
