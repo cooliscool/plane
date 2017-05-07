@@ -41,6 +41,9 @@
             document.getElementById('loader').style.display = 'none';
           }
         },
+       queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+       signInFlow: 'popup',
        signInSsuccessUrl: 'console.html',
        signInOptions: [
          // Leave the lines as is for the providers you want to offer your users.
@@ -62,9 +65,12 @@
 </head>
 <body>
 
-<h1>Hola!</h1>
-<h2>We are plane builders.</h2>
-<div id="firebaseui-auth-container"></div>
-</body>
+  <div class="jumbotron text-center">
+    <h1>Hola!</h1>
+    <h2>We are plane builders.</h2>
+  </div>
 
+<div id="firebaseui-auth-container"></div>
+
+</body>
 </html>
