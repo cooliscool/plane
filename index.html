@@ -1,76 +1,69 @@
 <html>
 <head>
 <title> Solar Plane Hangar </title>
-<link rel="stylesheet" href="bootstrap/bootstrap.css">
-<script type="text/javascript" src="bootstrap/bootstrap.js"></script>
 
-<!--                   Firebase initialization and essentials              -->
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<link rel="stylesheet" href="style.css">
+<!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script><!-- for core Firebase app JS -->
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script src="plane_functions.js"></script>
+
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCVrgUAJ2fqhGBj_w3lphk5MDU7ps9POA4",
-    authDomain: "planepro-4b5b2.firebaseapp.com",
-    databaseURL: "https://planepro-4b5b2.firebaseio.com",
-    projectId: "planepro-4b5b2",
-    storageBucket: "planepro-4b5b2.appspot.com",
-    messagingSenderId: "448140194014"
-  };
-  firebase.initializeApp(config);
+
+
+
 </script>
-
-<script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script><!--For firebase UI -->
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" /><!--For firebase UI -->
-
-<script type="text/javascript">
-     // FirebaseUI config.
-     var uiConfig = {
-       callbacks: {
-          signInSuccess: function(currentUser, credential, redirectUrl) {
-            // Do something.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            window.location = "console.html";
-            return true;
-          },
-          uiShown: function() {
-            // The widget is rendered.
-            // Hide the loader.
-            document.getElementById('loader').style.display = 'none';
-          }
-        },
-       queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
-       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-       signInFlow: 'popup',
-       signInSsuccessUrl: 'console.html',
-       signInOptions: [
-         // Leave the lines as is for the providers you want to offer your users.
-         firebase.auth.GithubAuthProvider.PROVIDER_ID,
-         firebase.auth.EmailAuthProvider.PROVIDER_ID
-       ],
-       // Terms of service url.
-       tosUrl: 'tos.html'
-     };
-
-     // Initialize the FirebaseUI Widget using Firebase.
-     var ui = new firebaseui.auth.AuthUI(firebase.auth());
-     // The start method will wait until the DOM is loaded.
-     ui.start('#firebaseui-auth-container', uiConfig);
-</script>
-
-
-
 </head>
 <body>
 
-  <div class="jumbotron text-center">
-    <h1>Hola!</h1>
-    <h2>We are plane builders.</h2>
-  </div>
+  <nav>
+     <div class="nav-wrapper deep-orange lighten-2">
+       <a href="#" class="brand-logo center">Plane Builder</a>
+       <ul id="nav-mobile" class="left hide-on-small-only">
+         <li><a href="#">&nbsp;</a></li>
+         <li><a href="#">Functions</a></li>
+         <li><a href="#">User</a></li>
+         <li><a href="#">Planes</a></li>
+       </ul>
+     </div>
+   </nav>
+   <div class="container ">
 
-<div id="firebaseui-auth-container"></div>
+     <div class="row firstrow">
+       <form class="col s12" action="javascript:formsubmit(1)">
+         <div class="row">
+           <div class="input-field col s12 m4 l4">
+             <input  id="param1" type="text" class="validate ">
+             <label for="last_name">Parameter : 1</label>
+           </div>
+           <div class="input-field col s12 m4 l4">
+             <input  id="param2" type="text" class="validate">
+             <label for="last_name">Parameter : 2</label>
+           </div>
+           <div class="input-field col s12 m4 l4">
+             <input  id="param3" type="text" class="validate">
+             <label for="last_name">Parameter : 3</label>
+           </div>
+         </div>
+         <div class="row">
+           <button class="btn waves-effect waves-light  deep-orange lighten-1" type="submit" name="action">Submit</button>
+         </div>
 
+       </form>
+      </div>
+
+      <div class="row">
+        <div class="card-panel deep-orange lighten-2">
+
+          <span class="grey-text text-darken-4" id="outDisp">
+              Output display
+          </span>
+        </div>
+     </div>
+
+
+   </div>
 </body>
-</html>
