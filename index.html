@@ -4,24 +4,21 @@
 
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<!-- Custom page styles and fonts -->
 <link rel="stylesheet" href="style.css">
-<!-- Compiled and minified JavaScript -->
+<!-- For material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified jQuery and materializeJS -->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
+<!-- Custom Plane calculations -->
 <script src="plane_functions.js"></script>
 
-<script>
-
-
-
-</script>
 </head>
 <body>
-
   <nav>
      <div class="nav-wrapper deep-orange lighten-2">
-       <a href="#" class="brand-logo center">Plane Builder</a>
+       <a href="#" class="brand-logo center">Plane Calculator</a>
        <ul id="nav-mobile" class="left hide-on-small-only">
          <li><a href="#">&nbsp;</a></li>
          <li><a href="#">Functions</a></li>
@@ -30,40 +27,66 @@
        </ul>
      </div>
    </nav>
-   <div class="container ">
 
-     <div class="row firstrow">
-       <form class="col s12" action="javascript:formsubmit(1)">
-         <div class="row">
-           <div class="input-field col s12 m4 l4">
-             <input  id="param1" type="text" class="validate ">
-             <label for="last_name">Parameter : 1</label>
-           </div>
-           <div class="input-field col s12 m4 l4">
-             <input  id="param2" type="text" class="validate">
-             <label for="last_name">Parameter : 2</label>
-           </div>
-           <div class="input-field col s12 m4 l4">
-             <input  id="param3" type="text" class="validate">
-             <label for="last_name">Parameter : 3</label>
-           </div>
-         </div>
-         <div class="row">
-           <button class="btn waves-effect waves-light  deep-orange lighten-1" type="submit" name="action">Submit</button>
-         </div>
+<!--TODO: Change theme -->
 
-       </form>
-      </div>
+  <div class="container">
+    <div class="row firstrow"></div>
+    <ul class="collapsible" data-collapsible="expandable">
+     <li>
+       <div class="collapsible-header"><h5><i class="material-icons">whatshot</i>Adder</h5></div>
+       <div class="collapsible-body">
+         <ul class="collection" >
+           <li class="collection-item">
+             <div class="row">
+               <form class="col s12" action="javascript:formsubmit(1)">
+                 <div class="row">
+                   <div class="input-field col s12 m4 l4">
+                     <input  id="param1" type="text" class="validate ">
+                     <label for="last_name">Parameter : 1</label>
+                   </div>
+                   <div class="input-field col s12 m4 l4">
+                     <input  id="param2" type="text" class="validate">
+                     <label for="last_name">Parameter : 2</label>
+                   </div>
+                   <div class="input-field col s12 m4 l4">
+                     <input  id="param3" type="text" class="validate">
+                     <label for="last_name">Parameter : 3</label>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <button class="btn waves-effect waves-light  deep-orange lighten-1" type="submit" name="action">Submit </button>
+                 </div>
 
-      <div class="row">
-        <div class="card-panel deep-orange lighten-2">
-
-          <span class="grey-text text-darken-4" id="outDisp">
-              Output display
-          </span>
-        </div>
-     </div>
-
-
-   </div>
+               </form>
+              </div>
+           </li>
+           <li class="collection-item">
+             <div class="row">
+               <div class="card-panel deep-orange lighten-2">
+                 <span class="grey-text text-darken-4" id="outDisp">
+                     Output display
+                 </span>
+               </div>
+            </div>
+          </li>
+         </ul>
+       </div>
+     </li>
+     <li>
+       <div class="collapsible-header"><h5><i class="material-icons">whatshot</i>First Weight Estimate</h5></div>
+       <div class="collapsible-body">
+         <ul class="collection">
+            <li class="collection-item">
+              <span class="text-blue"> First weight estimate</span>
+            </li>
+         </ul>
+       </div>
+     </li>
+     <li>
+       <div class="collapsible-header"><h5><i class="material-icons">whatshot</i>Second Weight Estimate</h5></div>
+       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+     </li>
+    </ul>
+  </div>
 </body>
